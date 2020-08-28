@@ -77,10 +77,3 @@ int main()
 	getchar();
 	return 0;
 }
-
-int SomeFunction()
-{
-	...
-	...
-	return 0;
-}
