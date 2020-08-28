@@ -24,7 +24,7 @@ void PlaceJumpToAddress(uintptr_t installAddress, uintptr_t addressToJumpTo)
 uintptr_t HookFunction(uintptr_t targetAddress, uintptr_t HookFunctionAddress, uint32_t hookSize)
 {
 	// setup the trampoline
-	uintptr_t trampolineAddress = (uintptr_t)VirtualAlloc(0, hookSize, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+	uintptr_t trampolineAddress = (uintptr_t)VirtualAlloc(0, hookSize + 5, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
 	memcpy((void*)trampolineAddress, (void*)targetAddress, hookSize);
 
 	// place a jump at the bottom of the bytes, so we can go back to the original function
